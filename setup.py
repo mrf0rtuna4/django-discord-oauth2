@@ -15,36 +15,35 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 """
-from __future__ import unicode_literals
-
-import os
 from setuptools import find_packages, setup
-
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-discord-oauth2',
-    version='0.1.0',
+    version='0.2.0',
     packages=find_packages(),
     include_package_data=True,
-    license='Apache License',
-    description='Django application for secure user authorisation using discord oauth2',
+    license='Apache License 2.0',
+    description='Django application for secure user authorisation using Discord OAuth2',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/mrf0rtuna4/django-discord-oauth2',
     author='mr_f0rtuna4',
     author_email='heypers.team@gmail.com',
     classifiers=[
-        'Development Status :: 1 - Alpha',
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 2.0',
-        'Framework :: Django :: 2.2.28',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache License',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Topic :: Communications :: Chat',
@@ -52,12 +51,16 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
-        "Django >= 2.2.28",
-        "requests",
+        'Django>=2.2',
+        'requests',
     ],
     tests_require=[
-        "django-setuptest >= 0.2.1",
-        "mock"
+        'django-setuptest>=0.2.1',
+        'mock',
     ],
-    test_suite='setuptest.setuptest.SetupTestSuite',
+    entry_points={
+        'console_scripts': [
+            'django-discord-oauth2=discord_oauth2:main',
+        ],
+    },
 )

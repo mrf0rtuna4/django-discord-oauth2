@@ -1,0 +1,15 @@
+include README.md
+include LICENSE
+include pyproject.toml
+
+recursive-include discord_oauth2/templates *
+recursive-include discord_oauth2/static *
+recursive-include discord_oauth2/migrations *
+
+include discord_oauth2/*.txt
+include discord_oauth2/*.md
+
+exclude *.pyc
+exclude __pycache__
+
+prune tests

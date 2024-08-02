@@ -1,5 +1,5 @@
 <!--
-Copyright 2023 mr_fortuna
+Copyright 2024 mr_fortuna
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ limitations under the License.
 
 ## Installation
 
-   ```bash
-   pip install django-discord-oauth2
-   ```
+```bash
+pip install django-discord-oauth2
+```
 
 ## Usage
 
@@ -31,7 +31,6 @@ limitations under the License.
 
    ```python
    INSTALLED_APPS = [
-       ...
        'django_discord_oauth2',
    ]
    ```
@@ -39,7 +38,11 @@ limitations under the License.
 2. Include the `django_discord_oauth2` URLconf in your project `urls.py` like this:
 
    ```python
-   path('oauth2/', include('django_discord_oauth2.urls')),
+   from django.urls import include, path
+
+   urlpatterns = [
+       path('oauth2/', include('django_discord_oauth2.urls')),
+   ]
    ```
 
 3. Run `python manage.py migrate` to create the necessary models.
@@ -53,11 +56,11 @@ limitations under the License.
    ```
 
 <details>
-<summary>How to get this varibles?</summary>
-1. Visit https://discord.com/developers/applications
+<summary>How to get these variables?</summary>
 
-2. Create App or use any your app
-3. Откройте Oauth2 в левой панели:
+1. Visit [Discord Developer Portal](https://discord.com/developers/applications).
+2. Create a new application or use an existing one.
+3. Open the OAuth2 section in the left panel:
 
 ![image](https://github.com/user-attachments/assets/face3685-4ee8-4c9e-a706-dc634069220b)
 
@@ -65,16 +68,15 @@ limitations under the License.
 
 ![image](https://github.com/user-attachments/assets/0e76649b-3d9b-4a5c-8744-d19fc3257d24)
 
-7. This is your DISCORD_CLIENT_ID.
-8. Press "Reset Secret" button and copy that token:
+7. This is your `DISCORD_CLIENT_ID`.
+8. Press the "Reset Secret" button and copy the token:
 
 ![image](https://github.com/user-attachments/assets/d2b899b3-84f4-42b0-8e4f-6a72979aaa30)
 
-10. I'ts your DISCORD_CLIENT_SECRET.
-11. Add redirect url, example:
+10. This is your `DISCORD_CLIENT_SECRET`.
+11. Add a redirect URL, for example:
 
 ![image](https://github.com/user-attachments/assets/d43dada4-cd0d-4cfe-bdea-39638cb0fee1)
-
 
 </details>
 
