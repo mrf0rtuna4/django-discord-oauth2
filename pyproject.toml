@@ -1,3 +1,22 @@
 [build-system]
 requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-discord-oauth2"
+version = "0.2.0"
+authors = [
+  { name="mr_f0rtuna4", email="heypers.team@gmail.com" },
+]
+description = "Django application for secure user authorisation using Discord OAuth2"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/mrf0rtuna4/django-discord-oauth2"
+Issues = "https://github.com/mrf0rtuna4/django-discord-oauth2/issues"
