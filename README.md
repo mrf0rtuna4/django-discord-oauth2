@@ -52,6 +52,30 @@ limitations under the License.
    DISCORD_REDIRECT_URI = 'your_redirect_uri'
    ```
 
-5. Start the development server and visit `http://127.0.0.1:8000/oauth2/login/` to initiate the login process.
+<details>
+<summary>How to get this varibles?</summary>
+1. Visit https://discord.com/developers/applications
 
-   ```
+2. Create App or use any your app
+3. Откройте Oauth2 в левой панели:
+
+![image](https://github.com/user-attachments/assets/face3685-4ee8-4c9e-a706-dc634069220b)
+
+5. Copy the CLIENT ID:
+
+![image](https://github.com/user-attachments/assets/0e76649b-3d9b-4a5c-8744-d19fc3257d24)
+
+7. This is your DISCORD_CLIENT_ID.
+8. Press "Reset Secret" button and copy that token:
+
+![image](https://github.com/user-attachments/assets/d2b899b3-84f4-42b0-8e4f-6a72979aaa30)
+
+10. I'ts your DISCORD_CLIENT_SECRET.
+11. Add redirect url, example:
+
+![image](https://github.com/user-attachments/assets/d43dada4-cd0d-4cfe-bdea-39638cb0fee1)
+
+
+</details>
+
+5. Start the development server and visit `http://127.0.0.1:8000/oauth2/login/` to initiate the login process.
