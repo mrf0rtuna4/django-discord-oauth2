@@ -15,10 +15,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 """
-from django.urls import path
-
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
+    path('oauth2/login/redirect', views.oauth2_callback, name='oauth2_redir'),
+    path('oauth2/error/', views.oauth2_error, name='oauth2_error'),
 ]
+

@@ -21,6 +21,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('oauth2/', include('discord_oauth2.urls')),
+    path('oauth2/', include('django_discord_oauth2.urls')),
     path('', include('app.urls')),
 ]

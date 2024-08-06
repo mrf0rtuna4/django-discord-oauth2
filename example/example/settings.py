@@ -31,12 +31,24 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("DJANGO_KEY")
 DISCORD_CLIENT_ID = os.getenv("ID")
 DISCORD_CLIENT_SECRET = os.getenv("SECRET")
-DISCORD_REDIRECT_URI = 'http://localhost:8000/oauth2/callback/'
+DISCORD_POST_URL = 'http://localhost:8000/oauth2/login/redirect'
 
+# Use database-backed sessions
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'example_cook'
+
+# Use a secure cookie for session (only for HTTPS)
+SESSION_COOKIE_SECURE = False  # Change to True for production with HTTPS
+
+# Duration of session cookie
+SESSION_COOKIE_AGE = 1036800  # Two weeks in seconds
+
+# Enable persistent sessions
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -48,7 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'discord_oauth2',
+    'django_discord_oauth2',
     'app'
 ]
 
@@ -131,3 +143,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

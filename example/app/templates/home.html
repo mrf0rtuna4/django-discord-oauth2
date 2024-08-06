@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    {% csrf_token %}
+    {% if user_data %}
+        <h2>User Data</h2>
+        <ul>
+            <li>ID: {{ user_data.id }}</li>
+            <li>Username: {{ user_data.username }}</li>
+            <li>Email: {{ user_data.email }}</li>
+            <li>Avatar: <img src="https://cdn.discordapp.com/avatars/{{ user_data.id }}/{{ user_data.avatar }}.png" alt="Avatar"></li>
+        </ul>
+    {% else %}
+        <a href="{% url 'discord_login' %}">Login with Discord</a>
+    {% endif %}
+</body>
+</html>

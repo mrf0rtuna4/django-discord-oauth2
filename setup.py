@@ -51,7 +51,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=[
-        'Django>=2.2',
+        'Django',
         'requests',
     ],
     tests_require=[
@@ -60,7 +60,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'django-discord-oauth2=discord_oauth2:main',
+            'django-discord-oauth2=django_discord_oauth2:main',
         ],
     },
 )

@@ -15,9 +15,54 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 """
+import json
 
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import render
+from django.urls import reverse
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from .models import User
+import logging
+
+logger = logging.getLogger(__name__)
 
 
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    user_data = request.session.get('user_data')
+    print(user_data)
+    return render(request, 'home.html', {'user_data': user_data})
+
+
+def save_user_data(user_data):
+    user, created = User.objects.update_or_create(
+        discord_id=user_data['id'],
+        defaults={
+            'username': user_data['username'],
+            'avatar': user_data.get('avatar'),
+            'email': user_data.get('email'),
+        }
+    )
+    return user
+
+
+@csrf_exempt
+@require_http_methods(['POST'])
+def oauth2_callback(request):
+    try:
+        user_data = json.loads(request.body)
+        logger.debug(f"User data received: {user_data}")
+
+        # Save user data in session
+        request.session['user_data'] = user_data
+        request.session.permanent = True
+        logger.debug(f"User data saved in session: {request.session['user_data']}")
+
+        return JsonResponse({'user_data': user_data})
+    except json.JSONDecodeError:
+        logger.error("Invalid JSON received")
+        return HttpResponseBadRequest('Invalid JSON')
+
+
+def oauth2_error(request):
+    return HttpResponseBadRequest("Authentication failed")
