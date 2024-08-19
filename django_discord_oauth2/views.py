@@ -19,14 +19,15 @@ import json
 
 import requests
 from django.conf import settings
-from django.http import HttpResponseBadRequest, JsonResponse
+from django.http import HttpResponseBadRequest, JsonResponse, HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 DISCORD_API_ENDPOINT = 'https://discord.com/api/v10'
 
 
+@ensure_csrf_cookie
 def discord_login(request):
     redirect_uri = request.build_absolute_uri(reverse('discord_callback'))
     discord_login_url = (
@@ -39,7 +40,7 @@ def discord_login(request):
     return redirect(discord_login_url)
 
 
-@csrf_exempt
+@ensure_csrf_cookie
 def discord_callback(request):
     if 'error' in request.GET or 'code' not in request.GET:
         return HttpResponseBadRequest('Error: Missing or invalid code parameter')
@@ -88,17 +89,22 @@ def discord_callback(request):
     if hasattr(settings, 'DISCORD_POST_URL'):
         post_response = requests.post(settings.DISCORD_POST_URL, json=user_data)
         if post_response.status_code != 200:
-            try:
-                error_details = post_response.json()
-            except json.JSONDecodeError:
-                error_details = post_response.text
-            return HttpResponseBadRequest(
-                json.dumps({
-                    'status_code': post_response.status_code,
-                    'error': error_details
-                }),
-                content_type='application/json'
-            )
+            # If in DEBUG mode, return the raw response to show the error page directly
+            if settings.DEBUG:
+                return HttpResponse(post_response.content, status=post_response.status_code,
+                                    content_type=post_response.headers.get('Content-Type', 'text/plain'))
+            else:
+                try:
+                    error_details = post_response.json()
+                except json.JSONDecodeError:
+                    error_details = post_response.text
+                return HttpResponseBadRequest(
+                    json.dumps({
+                        'status_code': post_response.status_code,
+                        'error': error_details
+                    }),
+                    content_type='application/json'
+                )
         return redirect(settings.DISCORD_POST_URL)
 
     return JsonResponse(user_data)
