@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-discord-oauth2"
-dynamic = ["version"]
+version = "0.3.0-beta.1"
 dependencies = ['Django','requests']
 requires-python = ">= 3.8"
 description = 'Django application for secure user authorisation using Discord OAuth2'
@@ -16,8 +16,6 @@ classifiers = [
 
   "Intended Audience :: Developers",
   "Topic :: Software Development :: Build Tools",
-
-  "License :: OSI Approved ::  Apache Software License",
 
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.8",
