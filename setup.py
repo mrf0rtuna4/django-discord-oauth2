@@ -19,7 +19,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-discord-oauth2',
-    version='0.2.0',
+    version='0.3.0-beta.1',
     packages=find_packages(),
     include_package_data=True,
     license='Apache License 2.0',
