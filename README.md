@@ -14,7 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-# django-discord-oauth2
+<div align="center">
+    <h1>Django & Discord Oauth2</h1>
+</div>
+
+<div align="center">
+    <a href="https://badge.fury.io/py/django-discord-oauth2">
+        <img src="https://badge.fury.io/py/django-discord-oauth2.svg">
+    </a>
+    <a href="https://www.python.org/downloads/">
+        <img src="https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue">
+    </a>
+    <a href="https://opensource.org/licenses/Apache-2.0">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg">
+    </a>
+</div>
 
 > [!WARNING]
 > App under development!!
@@ -81,3 +95,13 @@ pip install django-discord-oauth2
 </details>
 
 5. Start the development server and visit `http://127.0.0.1:8000/oauth2/login/` to initiate the login process.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) to get started.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
