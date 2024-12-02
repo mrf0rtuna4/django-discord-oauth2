@@ -14,12 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-# django-discord-oauth2
+<div align="center">
+    <h1>Django & Discord Oauth2</h1>
+</div>
 
-[![PyPI Version](https://img.shields.io/pypi/v/django-discord-oauth2)](https://pypi.org/project/django-discord-oauth2/)
-[![License](https://img.shields.io/pypi/l/django-discord-oauth2)](https://opensource.org/licenses/Apache-2.0)
-[![Python Versions](https://img.shields.io/pypi/pyversions/django-discord-oauth2)](https://pypi.org/project/django-discord-oauth2/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/django-discord-oauth2/test.yml)](https://github.com/mrf0rtuna4/django-discord-oauth2/actions)
+<div align="center">
+    <a href="https://badge.fury.io/py/django-discord-oauth2">
+        <img src="https://badge.fury.io/py/django-discord-oauth2.svg">
+    </a>
+    <a href="https://www.python.org/downloads/">
+        <img src="https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue">
+    </a>
+    <a href="https://opensource.org/licenses/Apache-2.0">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg">
+    </a>
+</div>
 
 > ⚠ **Warning:**  
 > This package is under active development. Use with caution in production environments.
