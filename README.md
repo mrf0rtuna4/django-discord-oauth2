@@ -31,7 +31,7 @@ limitations under the License.
 </div>
 
 > ⚠ **Warning:**  
-> This package is under active development. Use with caution in production environments.
+> This package is in the archive. Development will NOT be continued. Use with caution in production environments.
 
 ---
 
